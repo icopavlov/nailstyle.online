@@ -1,0 +1,181 @@
+/*-----------------------------------------------------------------*/
+/*	LAYOUT
+/*-----------------------------------------------------------------*/
+
+#send-email {
+//	display: none;
+	box-sizing: border-box;
+	max-width: 28.0rem;
+	margin-top: -5rem;
+	padding-left: 1.25rem; padding-right: 1.25rem;
+	position: relative; z-index: 1;
+}
+
+#send-email form {
+	padding: 2.8em;
+	position: relative; z-index: 1;
+}
+
+#send-email form:before, #send-email form:after {
+	display: block;
+	width: 100%; height: 100%;
+	position: absolute; left: 0; top: 0;
+}
+
+#send-email form:before {
+	box-sizing: border-box;
+	z-index: 2;
+}
+
+#send-email form:after {
+	z-index: 1;
+}
+
+#send-email dl {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#send-email dt {
+	position: absolute;
+	padding: 4px 8px;
+}
+
+#send-email label, #send-email input, #send-email textarea {
+	position: relative; z-index: 3;
+}
+
+#send-email input, #send-email textarea {
+	box-sizing: border-box;
+	display: block;
+	width: 100%; height: 4.0em;
+	padding: 0;
+}
+
+#send-email form:before, #send-email input, #send-email textarea {
+	border-style: solid; border-width: 1px;
+}
+
+#send-email textarea {
+	display: block;
+	height: 10.0em;
+}
+
+#send-email input[ type= "submit" ] {
+	height: 4.0em;
+}
+
+#send-email .send label {
+	display: none;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	TYPOGRAPHY
+/*-----------------------------------------------------------------*/
+
+#send-email form:before, #send-email form:after {
+	content: "";
+}
+
+#send-email label {
+	font-size: 0.85rem;
+}
+
+#send-email input[ type= "submit" ] {
+	color: rgba( 255, 255, 255, 0.75 );
+	font-family: "Arial Black";
+	text-transform: uppercase;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	COLOR
+/*-----------------------------------------------------------------*/
+
+#send-email form {
+	background-color: rgba( 255, 255, 255, 1 );
+}
+
+#send-email form:after {
+	background-color: rgba( 80, 80, 0, 0.75 );
+}
+
+#send-email label {
+	color: rgba( 255, 255, 255, 0.75 );
+}
+
+#send-email input, #send-email textarea {
+	background-color: transparent;
+}
+
+#send-email input, #send-email textarea {
+	border-color: rgba( 255, 255, 255, 0.15 );
+}
+
+#send-email form:before {
+	border-color: rgba( 255, 255, 255, 0.25 );
+}
+
+#send-email input[ type= "submit" ] {
+	background-color: rgba( 255, 255, 255, 0.05 );
+	color: rgba( 255, 255, 255, 0.75 );
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	IMAGERY
+/*-----------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------*/
+/*	USER INTERACTIONS
+/*-----------------------------------------------------------------*/
+
+#send-email input:focus, #send-email textarea:focus {
+	outline: none;
+}
+
+#send-email input:not( [type= "submit"] ):focus, #send-email textarea:focus {
+	border-color: rgba( 255, 255, 255, 0.5 );
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	EFFECTS
+/*-----------------------------------------------------------------*/
+
+#send-email form {
+	box-shadow: 0 0 20px rgba( 0, 0, 0, 0.7 );
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	MEDIA QUERIES
+/*-----------------------------------------------------------------*/
+
+@media screen and ( max-width: 28.0rem ) {
+	
+	#send-email form {
+		padding: 8%;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

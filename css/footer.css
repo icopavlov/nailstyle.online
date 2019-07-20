@@ -1,0 +1,114 @@
+/*-----------------------------------------------------------------*/
+/*	LAYOUT
+/*-----------------------------------------------------------------*/
+
+footer {
+	padding-bottom: 100px;
+	position: relative;
+}
+
+#social-net-links .nav {
+	width: 40px;
+}
+
+#social-net-links .nav a {
+	display: block;
+	margin-bottom: 6px;
+}
+
+footer h2, footer p {
+	width: 100%; height: 50px; line-height: 50px;
+	position: absolute;
+}
+
+footer h2 {
+	bottom: 50px;
+}
+
+footer p {
+	bottom: 0;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	TYPOGRAPHY
+/*-----------------------------------------------------------------*/
+
+footer {
+	font-family: "Arial Black";
+	text-transform: uppercase;
+	line-height: 1.0;
+}
+
+#social-net-links .nav a {
+	font-family: "Font Awesome Brands";
+}
+
+#social-net-links .nav li.facebook a:before {
+	content: "\f39e";
+}
+
+#social-net-links .nav li.twitter a:before {
+	content: "\f099";
+}
+
+#social-net-links .nav li.you-tube a:before {
+	content: "\f167";
+}
+
+footer h2, footer p {
+	font-size: 70%;
+	text-align: center;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	COLOR
+/*-----------------------------------------------------------------*/
+
+footer {
+	color: rgba( 80, 80, 0, 0.75 );
+}
+
+footer p {
+	color: rgba( 255, 255, 255, 0.7 );
+	background-color: rgba( 80, 80, 0, 0.75 );
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	IMAGERY
+/*-----------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------*/
+/*	USER INTERACTIONS
+/*-----------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------*/
+/*	EFFECTS
+/*-----------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------*/
+/*	MEDIA QUERIES
+/*-----------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,191 @@
+/*-----------------------------------------------------------------*/
+/*	LAYOUT
+/*-----------------------------------------------------------------*/
+
+/*
+#services .service-group, #services .service-group main {
+	position: relative;
+//	overflow: visible;
+}
+
+ #services .service-group main {
+	height: 0; overflow: hidden;
+}
+
+#services .service-group.open main {
+	height: auto; overflow: visible;
+}
+
+#services .service-group.open header, #services .service-group main {
+	height: 0; overflow: hidden;
+}
+
+#services .service-group header, #services .service-group.open main {
+	height: auto;
+}
+
+#services .data .content li {
+	position: relative;
+}
+*/
+
+/*
+#services .data .content img {
+	width: 100%; height: auto;
+	position: absolute; left: 0; top: 0; z-index: -1;
+}
+*/
+
+#services .content dl {
+	display: inline-block;
+	position: relative;
+}
+
+#services main .content dt {
+	display: none;
+}
+
+/*
+#services .data .content dt:nth-of-type( n + 2 ) {
+	position: relative; top: -1.2em; margin-bottom: -1.2em;
+}
+*/
+
+#services .content dd:nth-of-type( 2 ), #services .content dd:nth-of-type( 3 ) {
+	position: absolute; left: 100%; margin-left: 5px;
+}
+
+#services .content dd:nth-of-type( 2 ) {
+	top: 0;
+	
+}
+
+#services .content dd:nth-of-type( 3 ) {
+	display: none;
+	bottom: 0;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	TYPOGRAPHY
+/*-----------------------------------------------------------------*/
+
+@font-face {
+	font-family: "Font Awesome";
+	src: url( "../fonts/FontAwesome.otf" );
+}
+
+#services .content dl {
+	line-height: 1;
+}
+
+#services main .content dt {
+	font-size: 0.8rem;
+}
+
+#services main .content dt {
+	line-height: 1.2;
+}
+
+#services main .content dd {
+	font-family: "Arial Black";
+	font-size: 2.0rem;
+}
+
+#services .content dd:nth-of-type( 1 ) {
+	font-size: 4.5rem;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	COLOR
+/*-----------------------------------------------------------------*/
+
+#services .data .content, #services .data .controls {
+	border-color: transparent;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	IMAGERY
+/*-----------------------------------------------------------------*/
+
+/*
+#services .service-group img {
+	display: block;
+	width: 100%; height: auto;
+	position: absolute; left: 0; top: 0; z-index: -1;
+}
+
+#services .service-group main img {
+//	display: none;
+}
+*/
+
+/*
+#services .service-group.open:nth-child( n ) {
+	animation: clear-background 0.2s;
+}
+*/
+
+#services .service-group:nth-child( n ) header {
+	position: relative;
+	background: center center / cover no-repeat;
+}
+
+#services .service-group:nth-child( 1 ) header {
+	background-image: url( "../images/services/4410b1c1fdb00b3fd110.jpg" );
+}
+
+#services .service-group:nth-child( 2 ) header {
+	background-image: url( "../images/services/shutterstock_220291183.jpg" );
+}
+
+#services .service-group:nth-child( 3 ) header {
+	background-image: url( "../images/services/DramaticImage-Focus.jpg" );
+}
+
+#services .service-group header:before {
+	display: block;
+	position: absolute; left: 0; right: 0; top: 0; bottom: 0; z-index: 1;
+	background-color: rgba( 255, 255, 0, 0.4 );
+	content: "";
+	transition-property: background-color;
+	transition-duration: 0.4s;
+}
+
+#services .service-group.open:before {
+	background-color: rgba( 255, 255, 255, 0.9 );
+}
+
+/*-----------------------------------------------------------------*/
+/*	USER INTERACTIONS
+/*-----------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------*/
+/*	MEDIA QUERIES
+/*-----------------------------------------------------------------*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

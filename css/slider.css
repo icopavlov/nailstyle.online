@@ -1,0 +1,659 @@
+/*-----------------------------------------------------------------*/
+/*	LAYOUT
+/*-----------------------------------------------------------------*/
+
+#slider {
+	position: relative;
+	border-bottom-style: solid;
+}
+
+/** 
+ * Reserves under the slider space for the random-access-nav, 
+ * equal to {height of the nav} (14px) + {nav distance from the slider} (10px)
+ */
+#slider {
+	border-bottom-width: calc( 14px + 10px );
+}
+
+/** 
+ * Gives random-access-nav 10px distance from the bottom edge of the slider
+ */
+#slider .random-access {
+	top: calc( 100% + 10px );
+}
+
+#slider h2  {
+	display: none;
+}
+
+/** 
+ * Given that the main navigation is positioned over the slider, it's necessary to push slider content down, 
+ * to free up space for the nav. For that purpose, top padding is applied to slider content.
+ * Top padding of slider content is equal to {header's top margin} + {header's height} + {slider content's bottom padding}
+ */
+#slider .content li {
+	position: relative;
+	padding: calc( 70px + 50px + 110px ) 0 110px 0;
+	overflow: hidden;
+}
+
+#slider .content h4 {
+	margin-bottom: 0.7rem;
+}
+
+/** 
+ * Slides go from the left browser edge to the right one, but their content has distance from those edges,
+ * left and right margins are applied to each slide content
+ */
+#slider .content h4, #slider .content h3, #slider .content p, #slider .content a {
+	margin-left: calc( ( 100% - 960px ) / 2 ); margin-right: 40%;
+	position: relative; z-index: 3;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	TYPOGRAPHY
+/*-----------------------------------------------------------------*/
+
+#slider .content h4 {
+	font-family: "Arial Black";
+}
+
+@font-face {
+	font-family: "Font Awesome";
+	src: url( "../fonts/FontAwesome.otf" );
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	COLOR
+/*-----------------------------------------------------------------*/
+
+#slider {
+	border-bottom-color: rgba( 255, 255, 255, 0 );
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	IMAGERY
+/*-----------------------------------------------------------------*/
+
+#slider .content li:before, #slider .content li:after {
+	display: block;
+	height: 100%;
+	position: absolute; top: 0;
+	content: "";
+}
+
+#slider .content li:before {
+	width: 100%;
+	left: 0; z-index: 2;
+	background-color: rgba( 255, 255, 0, 0.25 );
+	background-size: cover;
+	background-repeat: no-repeat;
+}
+
+#slider .content li:after {
+	width: 120%;
+	left: 50%; margin-left: -60%; z-index: 1;
+	background-position: center center; background-size: cover;
+}
+
+#slider .content li:nth-child( 1 ):after {
+	background-image: url( "../images/slider/nail-beauty.jpg" );
+}
+
+#slider .content li:nth-child( 2 ):after {
+	background-image: url( "../images/slider/2_1511365172_41_5.jpg" );
+}
+
+#slider .content li:nth-child( 3 ):after {
+	background-image: url( "../images/slider/stylish-nails.jpg" );
+}
+
+/** 
+ * Slider images are placed as background images on the corresponding slides,
+ * they are positioned always at the center of the slide and cover the background entirely at any time
+ */
+
+/*
+#slider .content li {
+	background-repeat: no-repeat;
+}
+
+#slider .content li:nth-child( 1 ) {
+	background-image: url( "../images/slider/nail-beauty.jpg" );
+}
+
+#slider .content li:nth-child( 2 ) {
+	background-image: url( "../images/slider/flower22.jpg" );
+}
+
+#slider .content li:nth-child( 3 ) {
+	background-image: url( "../images/slider/matte-nail-polishes-1534188541.jpg" );
+}
+
+#slider .content img {
+	display: block;
+	width: 100%; height: auto;
+	position: absolute; left: 0; bottom: 0; z-index: -1;
+}
+*/
+
+/*-----------------------------------------------------------------*/
+/*	USER INTERACTIONS
+/*-----------------------------------------------------------------*/
+
+/** 
+ * On new slide loading the text lines and the button
+ * enter into view sequentially upwards
+ */
+/*
+#slider .content h4, #slider .content h3, #slider .content p, #slider .content a {
+	transform: translateY( 100px );
+	opacity: 0;
+}
+
+#slider li.current h4, #slider li.current h3, #slider li.current p, #slider li.current a {
+	animation: slide-up-into-view 0.25s forwards;
+}
+
+#slider li.current h4, #slider li.current h3 {
+	animation-delay: 0s;
+}
+
+#slider li.current p {
+	animation-delay: 0.2s;
+}
+
+#slider li.current a {
+	animation-delay: 0.4s;
+}
+
+@keyframes slide-up-into-view {
+	
+	0 % {
+		transform: translateY( 100px );
+		opacity: 0;
+	}
+	
+	100% {
+		transform: translateY( 0 );
+		opacity: 1;
+	}
+	
+}
+*/
+
+/** 
+ * On new slide loading the text lines and the button
+ * enter into view sequentially upwards
+ */
+#slider .content h4, #slider .content h3, #slider .content p, #slider .content a {
+	// transform: translateX( 25px );
+	// opacity: 0;
+}
+
+#slider li.current h4, #slider li.current h3, #slider li.current p, #slider li.current .button {
+	animation-duration: 0.4s;
+	animation-fill-mode: forwards;
+}
+
+#slider li.current.slide-background-left h4, #slider li.current.slide-background-left h3, #slider li.current.slide-background-left p, #slider li.current.slide-background-left .button {
+	animation-name: slide-into-view-left;
+}
+
+#slider li.current.slide-background-right h4, #slider li.current.slide-background-right h3, #slider li.current.slide-background-right p, #slider li.current.slide-background-right .button {
+	animation-name: slide-into-view-right;
+}
+
+#slider li.current h4, #slider li.current h3 {
+	animation-delay: 0.15s;
+}
+
+#slider li.current p {
+	animation-delay: 0.25s;
+}
+
+#slider li.current .button {
+	animation-delay: 0.35s;
+}
+
+#slider .content li.current.slide-background-left:after, #slider .content li.current.slide-background-right:after {
+	animation-duration: 6s;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+}
+
+#slider .content li.current.slide-background-left:after {
+	animation-name: slide-background-left;
+}
+
+#slider .content li.current.slide-background-right:after {
+	animation-name: slide-background-right;
+}
+
+#slider .content h4, #slider .content h3, #slider .content p, #slider .content a {
+	opacity: 0;
+}
+
+/*
+.initial-state-left > * {
+	transform: translateX( 25px );
+}
+
+.initial-state-right > * {
+	transform: translateX( -25px );
+}
+*/
+
+/*
+#slider li.current h4, #slider li.current h3, #slider li.current p, #slider li.current .button {
+	animation-duration: 0.4s;
+	animation-fill-mode: forwards;
+}
+
+#slider li.current.slide-background-left h4, #slider li.current.slide-background-left h3, #slider li.current.slide-background-left p, #slider li.current.slide-background-left .button {
+	animation-name: slide-into-view-left;
+}
+
+#slider li.current.slide-background-right h4, #slider li.current.slide-background-right h3, #slider li.current.slide-background-right p, #slider li.current.slide-background-right .button {
+	animation-name: slide-into-view-right;
+}
+
+#slider li.current h4, #slider li.current h3 {
+	animation-delay: 0.15s;
+}
+
+#slider li.current p {
+	animation-delay: 0.25s;
+}
+
+#slider li.current .button {
+	animation-delay: 0.35s;
+}
+
+#slider .content li {
+	background-position: 50% 50%;
+}
+
+#slider .content li.current.slide-background-left, #slider .content li.current.slide-background-right {
+	animation-duration: 6s;
+	animation-timing-function: linear;
+	animation-fill-mode: forwards;
+}
+
+#slider .content li.current.slide-background-left {
+	animation-name: slide-background-left;
+}
+
+#slider .content li.current.slide-background-right {
+	animation-name: slide-background-right;
+}
+
+#slider .content h4, #slider .content h3, #slider .content p, #slider .content a {
+	opacity: 0;
+}
+*/
+
+/*
+@keyframes fade-into-view {
+	
+	0% {
+		transform: scale( 1.2 );
+		opacity: 0;
+	}
+	
+	50% {
+		// transform: scale( 1.2 );
+	}
+	
+	100% {
+		transform: scale( 1 );
+		opacity: 1;
+	}
+	
+}
+*/
+
+@keyframes slide-into-view-left {
+	
+	0% {
+		transform: translateX( 25px );
+		opacity: 0;
+	}
+	
+	20% {
+		opacity: 1;
+	}
+	
+	100% {
+		transform: translateX( 0 );
+		opacity: 1;
+	}
+	
+}
+
+@keyframes slide-into-view-right {
+	
+	0% {
+		transform: translateX( -25px );
+		opacity: 0;
+	}
+	
+	20% {
+		opacity: 1;
+	}
+	
+	100% {
+		transform: translateX( 0 );
+		opacity: 1;
+	}
+	
+}
+
+@keyframes slide-background-left {
+	
+	0% {
+		transform: translateX( 0 );
+	}
+	
+	100% {
+		transform: translateX( -8% );
+	}
+	
+}
+
+@keyframes slide-background-right {
+	
+	0% {
+		transform: translateX( 0 );
+	}
+	
+	100% {
+		transform: translateX( 8% );
+	}
+	
+}
+
+/*
+#slider li.current h4, #slider li.current h3, #slider li.current p, #slider li.current a {
+	animation: fade-into-view 0.5s forwards;
+}
+
+#slider li.current h4, #slider li.current h3 {
+	animation-delay: 0.15s;
+}
+
+#slider li.current p {
+	animation-delay: 0.45s;
+}
+
+#slider li.current a.button {
+	animation-delay: 0.75s;
+}
+
+#slider .content li {
+	background-position: 50% 50%;
+	// background-size: cover;
+}
+
+#slider .content li.current {
+	animation: slide-and-fade-into-view 6s linear forwards;
+	perspective: 500px;
+}
+
+#slider .content h4, #slider .content h3, #slider .content p, #slider .content a {
+	opacity: 0;
+}
+
+@keyframes fade-into-view {
+	
+	0 % {
+		opacity: 0;
+	}
+	
+	100% {
+		opacity: 1;
+	}
+	
+}
+*/
+
+/*
+@keyframes slide-background-left {
+	
+	0% {
+		background-position: 50% 50%;
+	}
+	
+	100% {
+		background-position: 60% 50%;
+	}
+	
+}
+
+@keyframes slide-background-right {
+	
+	0% {
+		background-position: 50% 50%;
+	}
+	
+	100% {
+		background-position: 40% 50%;
+	}
+	
+}
+*/
+
+/*
+@keyframes fade-into-view {
+	
+	0 % {
+		transform: translateX( 100px ) scale( 1 );
+		opacity: 0;
+	}
+	
+	60% {
+		transform: scale( 1 );
+	}
+	
+	80% {
+		transform: scale( 1.1 );
+	}
+	
+	100% {
+		transform: translateX( 0 ) scale( 1 );
+		opacity: 1;
+	}
+	
+}
+*/
+
+/*
+#slider .content h4, #slider .content h3, #slider .content p, #slider .content a {
+	transform: translateX( 25px );
+	opacity: 0;
+}
+
+@keyframes fade-into-view {
+	
+	0 % {
+		transform: translateX( 25px );
+		opacity: 0;
+	}
+	
+	100% {
+		transform: translateX( 0 );
+		opacity: 1;
+	}
+	
+}
+
+@keyframes slide-and-fade-into-view {
+	
+	0 % {
+		background-position: 50% 50%;
+	}
+	
+	100% {
+		background-position: 60% 50%;
+	}
+	
+}
+*/
+
+/** 
+ * Alternative transitions
+ */
+
+/*
+#slider .content h4, #slider .content h3, #slider .content p, #slider .content a {
+	transform: rotateY( -10deg ) scale( 1.2 ) translateX( -60px ); transform-origin: 0 50%;
+	opacity: 0;
+}
+
+#slider .content li {
+	perspective: 180px;
+//	perspective-origin: 0 center;
+}
+
+#slider li.current h4, #slider li.current h3, #slider li.current p, #slider li.current a {
+	animation: enter-into-view 0.4s forwards;
+}
+
+#slider li.current h4, #slider li.current h3 {
+	animation-delay: 0s;
+}
+
+#slider li.current p {
+	animation-delay: 0.25s;
+}
+
+#slider li.current a {
+	animation-delay: 0.5s;
+}
+
+@keyframes enter-into-view {
+	
+	0 % {
+		transform: rotateY( -10deg ) scale( 1.2 ) translateX( -60px );
+		opacity: 0;
+	}
+	
+	100% {
+		transform: rotateY( 0 ) scale( 1 ) translateX( 0 );
+		opacity: 1;
+	}
+}
+*/
+
+
+/*
+/*-----------------------------------------------------------------*/
+/*	MEDIA QUERIES
+/*-----------------------------------------------------------------*/
+
+@media screen and ( max-width: 1000px ) {
+	
+	#slider .content h4, #slider .content h3, #slider .content p, #slider .content a {
+		margin-left: 1.25rem; margin-right: 1.25rem;
+	}
+
+}
+
+@media screen and ( max-width: 640px ) {
+	
+	body > header {
+		margin-top: 20px;
+	}
+	
+	#main-nav {
+		top: -20px;
+	}
+	
+	#main-nav .button.open {
+		top: calc( 20px + 50px + 12px );
+	}
+	
+	#main-nav.open .button.open {
+		top: calc( 20px + 5px );
+	}
+	
+}
+
+@media screen and ( max-width: 480px ) {
+	
+	#slider .content li {
+		padding-top: calc( 20px + 50px + 5em ); padding-bottom: 2.5em;
+	}
+	
+}
+
+/*
+@media screen and ( min-width: 1280px ) {
+	
+	#slider .content li:nth-child( 1 ) {
+		background-image: url( "../images/slider/large/nail-beauty.jpg" );
+	}
+
+	#slider .content li:nth-child( 2 ) {
+		background-image: url( "../images/slider/large/flower22.jpg" );
+	}
+
+	#slider .content li:nth-child( 3 ) {
+		background-image: url( "../images/slider/large/matte-nail-polishes-1534188541.jpg" );
+	}
+	
+}
+
+@media screen and ( max-width: 1280px ) {
+	
+	#slider .content li:nth-child( 1 ) {
+		background-image: url( "../images/slider/medium/nail-beauty.jpg" );
+	}
+
+	#slider .content li:nth-child( 2 ) {
+		background-image: url( "../images/slider/medium/flower22.jpg" );
+	}
+
+	#slider .content li:nth-child( 3 ) {
+		background-image: url( "../images/slider/medium/matte-nail-polishes-1534188541.jpg" );
+	}
+	
+}
+
+@media screen and ( max-width: 740px ) {
+	
+	#slider .content li:nth-child( 1 ) {
+		background-image: url( "../images/slider/small/nail-beauty.jpg" );
+	}
+
+	#slider .content li:nth-child( 2 ) {
+		background-image: url( "../images/slider/small/flower22.jpg" );
+	}
+
+	#slider .content li:nth-child( 3 ) {
+		background-image: url( "../images/slider/small/matte-nail-polishes-1534188541.jpg" );
+	}
+	
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,237 @@
+/*-----------------------------------------------------------------*/
+/*	LAYOUT
+/*-----------------------------------------------------------------*/
+
+#slider .controls {
+	box-sizing: border-box;
+}
+
+/**
+ * Reseting of predefined styles
+ * -----------------------------
+ */
+
+#slider .random-access button {
+	box-sizing: content-box;
+	padding: 0;
+	border: 0;
+}
+
+
+/**
+ * Serial Access
+ * -------------
+ */
+
+#slider .serial-access {
+	display: none;
+}
+
+#slider .serial-access li {
+	float: left;
+}
+
+#slider .serial-access a {
+	display: block;
+	width: 32px; height: 32px;
+	position: relative;
+}
+
+#slider .serial-access li:not( :last-child ) a {
+	margin-right: 4px;
+}
+
+/* Font Awesome icons placeholders */
+#slider .serial-access a:before {
+	display: block;
+	position: absolute; left: 50%; top: 50%; transform: translate( -50%, -50% );
+}
+
+
+/**
+ * Random Access
+ * -------------
+ */
+
+#slider .random-access {
+	position: absolute; left: 50%; transform: translate( -50%, 0 );
+}
+
+#slider .random-access li {
+	float: left;
+}
+
+#slider .random-access button {
+	width: 14px; height: 14px;
+}
+
+/* Represents the button */
+#slider .random-access button:before {
+	border-width: 2px;
+}
+
+/* Highlights selected or hovered buttons */
+#slider .random-access button:after {
+	box-sizing: border-box;
+	width: 100%; height: 100%;
+	left: 0; top: 0;
+	border-width: 1px;
+}
+
+.random-access button {
+	display: block;
+	position: relative;
+	cursor: pointer;
+}
+
+
+/* Clearing floats */
+#slider .serial-access:after, #slider .random-access:after {
+	display: block;
+	content: "";
+	clear: both;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	TYPOGRAPHY
+/*-----------------------------------------------------------------*/
+
+#slider .random-access button {
+	text-indent: -10000px;
+}
+
+#slider .random-access button:after {
+	content: "";
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	COLOR
+/*-----------------------------------------------------------------*/
+
+#slider .random-access button {
+	background-color: transparent;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	IMAGERY
+/*-----------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------*/
+/*	USER INTERACTIONS
+/*-----------------------------------------------------------------*/
+
+.random-access button:before, .random-access button:after {
+	display: block;
+	position: absolute;
+	border-style: solid; border-radius: 50%;
+	content: "";
+}
+
+/* Represents the button */
+.random-access button:before {
+	left: 50%; top: 50%; transform: translate( -50%, -50% );
+}
+
+/* Highlights selected or hovered buttons */
+.random-access button:after {
+	box-sizing: border-box;
+	width: 100%; height: 100%;
+	left: 0; top: 0; z-index: 1;
+	border-width: 1px;
+	content: "";
+}
+
+.random-access button:after, .random-access:hover .slick-active button:after {
+	transform: scale( 0.4 );
+	opacity: 0;
+	transition-duration: 0.2s;
+	transition-property: transform;
+}
+
+.random-access .slick-active button:after, .random-access li:hover button:after, .random-access li.slick-active:hover button:after {
+	transform: scale( 1 );
+	opacity: 1;
+}
+
+/** 
+ * Nav items on-hover effect employs pseudo-element,
+ * that is given "transform-style", defining whether transform is 2D or 3D
+ */
+#slider .serial-access a:after {
+	display: block;
+	position: absolute;
+	left: 0; right: 0; top: 0; bottom: 0;
+	border: 1px solid rgba( 255, 255, 255, 1 );
+	transform-style: preserve-3d;
+	content: "";
+}
+
+#slider .serial-access a:hover:after {
+	animation-name: scale-up;
+	animation-duration: 0.6s;
+}
+
+/* On-hover-animation declaration */
+@keyframes scale-up {
+	0% {
+		transform: scale( 1.0 );
+	}
+	
+	50% {
+		transform: scale( 1.4 );
+	}
+	
+	100% {
+		transform: scale( 1.0 );
+	}
+}
+
+#slider .random-access button {
+	cursor: pointer;
+}
+
+#slider .random-access button:after, #slider .random-access:hover .slick-active button:after {
+	transform: scale( 0.4 );
+	opacity: 0;
+	transition-duration: 0.2s;
+	transition-property: transform;
+}
+
+#slider .random-access .slick-active button:after, #slider .random-access li:hover button:after, #slider .random-access li.slick-active:hover button:after {
+	transform: scale( 1 );
+	opacity: 1;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	MEDIA QUERIES
+/*-----------------------------------------------------------------*/
+
+@media screen and ( max-width: 960px ) {
+	
+}
+
+@media screen and ( max-width: 720px ) {
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

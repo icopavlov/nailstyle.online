@@ -1,0 +1,308 @@
+/*-----------------------------------------------------------------*/
+/*	LAYOUT
+/*-----------------------------------------------------------------*/
+
+/* Gives content and controls sections the same padding to align their left edges horizontally */
+#services main .content {
+//	box-sizing: border-box;
+	margin-left: 32%;
+//	background-color: red;
+}
+
+#services main .controls {
+	box-sizing: border-box;
+	width: 32%;
+	padding-left: 20px; padding-right: 20px;
+	position: absolute; left: 0; z-index: 1;
+//	background-color: blue;
+}
+
+#services .controls .button.close, #services .controls > .button.open {
+	float: left;
+	position: relative;
+}
+
+#services .controls > .button.open {
+	margin-left: 10px;
+}
+
+#services main {
+	padding-top: 3.5rem; padding-bottom: 3.5rem;
+}
+
+#services main .controls {
+	top: 3.5rem;
+}
+
+
+#services main .random-access {
+	box-sizing: border-box;
+	width: 100%; height: 100%;
+	position: fixed; left: 0; top: 0; z-index: 4;
+	background-color: rgba( 255, 255, 255, 0.95 );
+	overflow: auto;
+	transform: translateX( 100% );
+}
+
+#services main.open .random-access {
+	transition: transform 0.25s; transform: translateX( 0 );
+}
+
+#services .random-access li .button.open:after {
+	border-radius: 0;
+}
+ 
+#services .random-access li {
+	float: left;
+	width: 100%; min-height: 5rem;
+	margin-right: 4px; margin-bottom: 4px;
+	position: relative;
+//	background-color: #888;
+//	border-radius: 50%;
+}
+
+#services .random-access .button.open {
+	box-sizing: border-box;
+	display: block;
+	width: 100%; height: 100%;
+	padding: 1.2rem;
+	position: absolute;
+//	background-color: #888;
+	border-color: rgba( 80, 80, 0, 0.15 );
+	border-radius: 0;
+	font-family: "Arial Black"; font-size: 85%;
+	line-height: 1.1;
+}
+
+/* Clearing floats */
+#services .controls:after, #services .random-access:after {
+	display: block;
+	content: "";
+	clear: both;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	TYPOGRAPHY
+/*-----------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------*/
+/*	COLOR
+/*-----------------------------------------------------------------*/
+
+#services .controls .serial-access a {
+//	border-color: #888;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	IMAGERY
+/*-----------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------*/
+/*	USER INTERACTIONS
+/*-----------------------------------------------------------------*/
+
+#services .random-access li.current .button.open:after, #services .random-access li:hover .button.open:after {
+	transform: scale( 1 );
+}
+
+#services .random-access li:hover .button.open, #services .random-access li.current .button.open {
+	color: rgba( 255, 255, 255, 1 );
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	MEDIA QUERIES
+/*-----------------------------------------------------------------*/
+
+@media screen and ( max-width: 1120px ) {
+	
+	#services main .content h4, #services main .content p, #services main .content dl {
+		margin-left: 20px; margin-right: 20px;
+	}
+	
+	#services main .random-access {
+		padding: 10% 25%;
+	}
+	
+}
+
+@media screen and ( min-width: 920px ) {
+	
+	#services main .random-access {
+		padding: 10% 25%;
+	}
+	
+}
+
+@media screen and ( max-width: 920px ) {
+	
+	#services main .random-access {
+		padding: 5% 15%;
+	}
+	
+}
+
+@media screen and ( max-width: 680px ) {
+	
+	#services main .random-access {
+		padding: 2rem;
+	}
+	
+}
+
+@media screen and ( max-width: 780px ) {
+
+	#services .controls .button.close, #services .controls > .button.open {
+		float: right;
+	}
+	
+	#services .controls > .button.open {
+		margin-left: 20px; margin-top: 10px;
+	}
+	
+}
+
+@media screen and ( max-width: 720px ) {
+
+	#services .service-group main h4, #services .service-group main p {
+		margin-bottom: 0.6em;
+	}
+	
+	#services main .content {
+		margin-left: 0;
+	}
+	
+	#services main .controls {
+		width: auto;
+		margin-top: 2rem;
+		position: initial; top: 0;
+	}
+	
+	#services .controls .button.close, #services .controls > .button.open {
+		float: left;
+	}
+	
+	#services .controls > .button.open {
+		margin-left: 10px; margin-top: 0;
+	}
+	
+}
+
+/*
+@media screen and ( min-width: 781px ) {
+
+	#services .random-access li {
+		width: calc( ( 100% - 3 * 4px ) / 4 ); height: calc( ( 100% - 3 * 4px ) / 4 );
+	}
+
+	#services .random-access li:nth-child( 4n + 4 ) {
+		margin-right: 0;
+	}
+
+	#services .random-access li:nth-child( -n + 4 ) {
+		margin-top: 0;
+	}
+
+}
+
+@media screen and ( max-width: 780px ) and ( min-width: 580px ) {
+	
+	#services .random-access li:nth-child( n ) {
+		width: calc( ( 100% - 2 * 4px ) / 3 ); height: calc( ( 100% - 5 * 4px ) / 6 );
+	}
+
+	#services .random-access li:nth-child( 3n + 3 ) {
+		margin-right: 0;
+	}
+
+	#services .random-access li:nth-child( -n + 3 ) {
+		margin-top: 0;
+	}
+
+}
+*/
+
+@media screen and ( max-width: 640px ) {
+	
+	#services main .content dd {
+		font-size: 1.85rem;
+	}
+
+	#services main .content dd:nth-of-type( 1 ) {
+		font-size: 3.8rem;
+	}
+	
+}
+
+@media screen and ( max-width: 580px ) {
+	
+	#services main .random-access {
+	//	padding: 2rem;
+	}
+/*	
+	#services .random-access li:nth-child( n ) {
+		width: calc( ( 100% - 1 * 4px ) / 2 ); height: calc( ( 100% - 5 * 4px ) / 6 );
+	}
+
+	#services .random-access li:nth-child( 2n + 2 ) {
+		margin-right: 0;
+	}
+
+	#services .random-access li:nth-child( -n + 2 ) {
+		margin-top: 0;
+	}
+*/
+
+}
+
+@media screen and ( max-width: 460px ) {
+	
+	#services main .random-access {
+		padding: 1rem;
+	}
+	
+}
+
+@media screen and ( max-width: 420px ) {
+	
+/*	
+	#services .random-access li:nth-child( n ) {
+		width: 100%; height: auto;
+	}
+	
+	#services .random-access li:nth-child( n ) {
+		margin-right: 0;
+	}
+
+	#services .random-access li:nth-child( -n + 1 ) {
+		margin-top: 0;
+	}
+	
+	#services .random-access li .button.open {
+		padding: 1.2rem;
+	}
+*/	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

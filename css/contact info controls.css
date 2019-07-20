@@ -1,0 +1,126 @@
+/*-----------------------------------------------------------------*/
+/*	LAYOUT
+/*-----------------------------------------------------------------*/
+
+/**
+ * Resetting of predefined styles
+ */
+
+#contact-info .random-access button {
+	box-sizing: content-box;
+	padding: 0;
+	border: 0;
+}
+
+/**
+ * Random access nav is horizontally aligned
+ * and centered horizontally and vertically within the controls section
+ */
+
+#contact-info .random-access li {
+	float: left;
+}
+
+#contact-info .random-access button {
+	width: 40px; height: 40px;
+}
+
+#contact-info .random-access li:not( :last-child ) button {
+	margin-right: 10px;
+}
+
+#contact-info .random-access button:before {
+	border-width: 0;
+}
+
+/* Clearing floats */
+#contact-info .random-access:after {
+	display: block;
+	content: "";
+	clear: both;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	TYPOGRAPHY
+/*-----------------------------------------------------------------*/
+
+/* Button text is moved away to make room for the button icons */
+#contact-info .random-access button {
+	text-indent: -10000px;
+}
+
+/**
+ * Inserting Font-Awesome icons
+ */
+#contact-info .random-access button:before {
+	font-family: "Font Awesome";
+	font-size: 1.25rem;
+	text-indent: 0;
+}
+
+#contact-info .random-access li:nth-child( 1 ) button:before {
+	content: "\f041";
+}
+
+#contact-info .random-access li:nth-child( 2 ) button:before {
+	content: "\f095";
+}
+
+#contact-info .random-access li:nth-child( 3 ) button:before {
+	font-size: 1.1rem;
+	content: "\f0e0";
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	COLOR
+/*-----------------------------------------------------------------*/
+
+#contact-info .random-access button:before, #contact-info .random-access button:after {
+	color: rgba( 255, 255, 255, 1 );
+}
+
+#contact-info .random-access button {
+	background-color: transparent;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	IMAGERY
+/*-----------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------*/
+/*	USER INTERACTIONS
+/*-----------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------*/
+/*	MEDIA QUERIES
+/*-----------------------------------------------------------------*/
+
+@media screen and ( max-width: 960px ) {
+	
+}
+
+@media screen and ( max-width: 720px ) {
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,228 @@
+/*-----------------------------------------------------------------*/
+/*	LAYOUT
+/*-----------------------------------------------------------------*/
+
+#contact-info {
+	padding-top: 5rem; padding-bottom: 8.5rem;
+	position: relative;
+	overflow: hidden;
+}
+
+/* Gives the contact info controls and the list with the info the same padding */
+#contact-info h3, #contact-info p, #contact-info .contact-info-items, #contact-info .controls {
+	padding-right: calc( 0.4 * 960px );
+	z-index: 1;
+}
+
+#contact-info h3, #contact-info p {
+	box-sizing: border-box;
+	position: relative;
+}
+
+#contact-info .controls {
+	box-sizing: border-box;
+	height: 100%;
+	position: absolute;
+	top: 0; right: calc( ( 100% - 960px ) / 2 );
+//	background-color: red;
+}
+
+#contact-info .random-access {
+	position: absolute; left: 50%; top: 50%; transform: translate( -50%, -50% );
+//	background-color: blue;
+}
+
+.contact-info-items li {
+	position: relative;
+}
+
+.contact-info-items dl {
+	position: relative;
+//	background-color: blue;
+}
+
+.contact-info-items dt:nth-of-type( n + 2 ) {
+	position: relative; top: -1.2em; margin-bottom: -1.2em;
+}
+
+.contact-info-items dd {
+	float: left;
+//	display: inline-block;
+}
+
+.contact-info-items dd:not( :last-of-type ) {
+	margin-right: 0.2em;
+}
+
+.contact-info-items dd {
+	padding: 12px;
+}
+
+#contact-info:before {
+	display: block;
+	width: 100%; height: 100%;
+	position: absolute; top: 0; left: 0; z-index: 1;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	TYPOGRAPHY
+/*-----------------------------------------------------------------*/
+
+@font-face {
+	font-family: "Font Awesome";
+	src: url( "../fonts/FontAwesome.otf" );
+}
+
+#contact-info:before {
+	content: "";
+}
+
+.contact-info-items dl {
+	line-height: 1;
+}
+
+.contact-info-items dt {
+	font-size: 0.8rem;
+}
+
+.contact-info-items dt {
+	line-height: 1.2;
+	text-transform: lowercase;
+}
+
+.contact-info-items dd {
+	font-family: "Arial Black";
+	font-size: 1.4rem;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	COLOR
+/*-----------------------------------------------------------------*/
+
+#contact-info {
+	color: rgba( 255, 255, 255, 1 );
+}
+
+#contact-info:before {
+	background-color: rgba( 255, 255, 0, 0.4 );
+}
+
+#contact-info .contact-info-items, #contact-info .controls {
+	border-color: transparent;
+}
+
+.contact-info-items dd {
+	background-color: rgba( 255, 255, 255, 1 );
+	color: rgba( 80, 80, 0, 1 );
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	IMAGERY
+/*-----------------------------------------------------------------*/
+
+#contact-info {
+	background: url( "../images/contact-info/bosch-contact.jpg" ) center / cover no-repeat;
+}
+
+/*
+.contact-info-items img {
+	width: 100%; height: auto;
+	position: absolute; left: 0; top: 0; z-index: -1;
+}
+
+#contact-info > img {
+	display: block;
+	width: 100%; height: auto;
+	position: absolute; left: 0; top: 0; z-index: -1;
+	opacity: 0.75;
+}
+*/
+
+
+/*-----------------------------------------------------------------*/
+/*	USER INTERACTIONS
+/*-----------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------*/
+/*	MEDIA QUERIES
+/*-----------------------------------------------------------------*/
+
+@media screen and ( max-width: 1000px ) {
+	
+	#contact-info h3, #contact-info p, #contact-info .contact-info-items {
+		padding-right: calc( 0.4 * 100% );
+	}
+	
+	#contact-info .controls {
+		padding-right: calc( 0.4 * ( 100% - 2 * 20px ) );
+	}
+	
+	#contact-info .controls {
+		right: 20px;
+	}
+	
+}
+
+@media screen and ( max-width: 800px ) {
+	
+	#contact-info h3, #contact-info p, #contact-info .contact-info-items, #contact-info .controls {
+		padding-right: 0;
+	}
+	
+	#contact-info h3 {
+		margin-top: 2rem;
+	}
+	
+	#contact-info .controls {
+		height: auto;
+		left: 20px; top: 40px; right: auto;
+	//	background-color: red;
+	}
+	
+	#contact-info .random-access {
+		position: initial; transform: translate( 0 );
+	}
+	
+}
+
+@media screen and ( max-width: 550px ) {
+	
+	.contact-info-items dd {
+		float: none;
+		display: inline-block;
+	}
+	
+	.contact-info-items dd:not( :last-of-type ) {
+		margin-right: 0.2em;
+	}
+
+	.contact-info-items dt:nth-of-type( n + 2 ) {
+		top: 0; margin-bottom: 0;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

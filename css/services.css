@@ -1,0 +1,279 @@
+/*-----------------------------------------------------------------*/
+/*	LAYOUT
+/*-----------------------------------------------------------------*/
+
+/*
+#services .service-group {
+	position: relative; z-index: 1;
+	overflow: hidden;
+}
+
+#services .service-group.open {
+	z-index: 5;
+}
+*/
+
+#services .service-group:not( :last-child ) {
+	margin-bottom: 2px;
+}
+
+
+/** 
+ * Header and main sections are given 100% width and placed next to each other
+ * to make only one of them visible at a time
+ */
+/*
+#services .service-group header, #services .service-group main {
+	box-sizing: border-box;
+	float: left;
+	width: 100%;
+}
+
+#services .service-group main {
+	margin-right: -100%;
+}
+*/
+
+/*
+#services .service-group header {
+	position: relative;
+//	margin-left: -100%;
+}
+
+#services .service-group:after {
+	display: block;
+	clear: both;
+	content: "";
+}
+*/
+
+#services, #services header, #services header h3, #services header p, #services header a, #services main, #services article p {
+	position: relative;
+}
+
+#services header h3, #services header p, #services header a {
+	z-index: 2;
+}
+
+/*
+#services header:hover:after {
+	display: block;
+	width: 100%; height: 100%;
+	position: absolute; left: 0; top: 0; z-index: 1;
+	content: "";
+	background-size: cover;
+	background-image: url( "../images/slider/TenderLeanLiger-max-1mb.gif" );
+	opacity: 0.1;
+}
+*/
+
+/*
+#services main {
+	position: relative;
+}
+*/
+
+#services article {
+	max-width: 600px;
+	margin-left: auto; margin-right: auto;
+	padding-left: 20px; padding-right: 20px;
+}
+
+#services main article p {
+	margin-top: 1.2em;
+}
+
+#services figure {
+	position: relative;
+}
+
+#services figure:after {
+	display: block;
+	width: 100%; height: 100%;
+	position: absolute; left: 0; top: 0; z-index: 1;
+	background-color: rgba( 255, 255, 0, 0.25 );
+	content: "";
+}
+
+#services article img {
+	box-sizing: border-box;
+	display: block;
+	padding: 10px;
+	max-width: 100%;
+	width: 100%; height: auto;
+	margin-top: 1em;
+}
+
+#services figcaption {
+	margin-top: 4px;
+	padding: 16px; padding-top: 0;
+	position: relative;
+	font-family: "Arial Black"; font-size: 0.85rem; line-height: 1.4; color: rgba( 0, 0, 0, 0.7 ); 
+}
+
+#services article p {
+	text-align: justify;
+}
+
+#services figcaption {
+	text-align: left;
+}
+
+/*
+#services main .button.close {
+	right: calc( 50% + 300px + 60px ); top: 60px; margin-top: -4px;
+}
+*/
+
+
+/*-----------------------------------------------------------------*/
+/*	TYPOGRAPHY
+/*-----------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------*/
+/*	COLOR
+/*-----------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------*/
+/*	IMAGERY
+/*-----------------------------------------------------------------*/
+
+/*
+.service-group header img  {
+	box-sizing: border-box;
+	width: 45%; height: 60%;
+	position: absolute; right: 0; top: 50%; transform: translateY( -50% );
+}
+*/
+
+/* Gives the image distance from left and right */
+/*
+.service-group header img  {
+	padding: 0 20px 0 10px;
+}
+*/
+
+
+/*-----------------------------------------------------------------*/
+/*	USER INTERACTIONS
+/*-----------------------------------------------------------------*/
+
+/** 
+ * Clicking the "open" button on the service group shows detailed info about the services enclosed
+ * by placing the header section out of view and the main section - into view
+ */
+#services .service-group header {
+//	transition: margin-left 0.25s;
+}
+
+/** 
+ * Placing mouse cursor over service group header moves the heading, the paragraph and the button up
+ */
+.service-group header h3, .service-group header p {
+	transition-property: transform; transition-duration: 0.25s;
+}
+
+.service-group header .button.open {
+	transition-property: transform, opacity; transition-duration: 0.25s;
+}
+
+.service-group header h3, .service-group header p {
+	transform: translateY( 40px );
+}
+
+.service-group header .button.open {
+	transform: translateY( 200px );
+	opacity: 0;
+}
+
+.service-group:hover header .button.open, .service-group:hover header h3, .service-group:hover header p {
+	transform: translateY( 0 );
+}
+
+.service-group:hover header .button.open {
+	opacity: 1;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	EFFECTS
+/*-----------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------*/
+/*	MEDIA QUERIES
+/*-----------------------------------------------------------------*/
+
+@media screen and ( min-width: 841px ) {
+	
+	/* In odd service groups moves the right edges of header headings and paragraphs to left */
+	.service-group:nth-child( 2n + 1 ) header h3, .service-group:nth-child( 2n + 1 ) header p, .service-group:nth-child( 2n + 1 ) header .button.open {
+		margin-left: 8%; margin-right: 35%;
+	}
+
+	/* In even service groups moves the left edges of header headings and paragraphs to right */
+	.service-group:nth-child( 2n ) header h3, .service-group:nth-child( 2n ) header p, .service-group:nth-child( 2n ) header .button.open {
+		margin-left: 35%; margin-right: 8%;
+	}
+	
+	#services .service-group header {
+		padding: 8rem 0;
+	}
+	
+}
+
+@media screen and ( max-width: 840px ) {
+	
+	#services .service-group header {
+		padding: 2.5rem 0;
+	}
+	
+	/* In odd service groups moves the right edges of header headings and paragraphs to left */
+	.service-group:nth-child( n ) header h3, .service-group:nth-child( n ) header p, .service-group:nth-child( n ) header .button.open {
+		margin-left: 1.25rem; margin-right: 20%;
+	}
+	
+	#services .service-group header h3, #services .service-group header p, #services .service-group main h4, #services .service-group main p {
+		margin-bottom: 1.25rem;
+	}
+	
+}
+
+@media screen and ( max-width: 720px ) {
+	
+	/* In odd service groups moves the right edges of header headings and paragraphs to left */
+	.service-group:nth-child( n ) header h3, .service-group:nth-child( n ) header p, .service-group:nth-child( n ) header .button.open {
+		margin-right: 1.25rem;
+	}
+	
+}
+
+@media screen and ( max-width: 1000px ) {
+	
+	#services header h2, #services header p, #services header a {
+		margin-left: 1.25rem;
+	}
+	
+	#services header img, #services header:before {
+		width: 100%;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

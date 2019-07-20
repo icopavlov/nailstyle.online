@@ -1,0 +1,403 @@
+/*-----------------------------------------------------------------*/
+/*	LAYOUT
+/*-----------------------------------------------------------------*/
+
+body > header {
+//	display: none;
+	width: 100%;
+	position: absolute; z-index: 2;
+	border-style: solid;
+	border-width: 1px 0;
+}
+
+#logo, #quick-contact {
+	box-sizing: border-box;
+}
+
+/** 
+ * Logo, main nav and quick contact are given equal heights (50px)
+ * and main nav is pulled up over the logo to align them vertically.
+ * 
+ * The whole header is pushed down (70px) to make room for quick contact,
+ * which is positioned right on top of the header
+ */
+ 
+body > header {
+	margin-top: 70px;
+}
+
+#logo, #main-nav .nav a,
+#quick-contact header, #quick-contact main {
+	height: 50px;
+}
+
+#main-nav {
+	margin-top: -50px;
+}
+
+/* Centers logo, nav buttons and quick contact info vertically */
+#logo, #main-nav .nav a,
+#quick-contact main {
+	line-height: 50px;
+}
+
+/* Main nav button list is right aligned */
+#main-nav .nav {
+	float: right;
+	margin-right: 20px;
+}
+
+/* Making main nav horizontal */
+#main-nav li {
+	float: left;
+	margin-right: 8px;
+}
+
+/* Zeroes out the last item right margin */
+#main-nav li:last-child {
+	margin-right: 0;	
+}
+
+#main-nav .nav a {
+	display: block;
+	padding: 0 20px;
+	position: relative;
+}
+
+#main-nav .button.open {
+	display: none;
+	padding: 0;
+	margin-bottom: 8px;
+	position: absolute; top: calc( 70px + 50px + 12px ); left: 20px;
+}
+
+/* Quick contact is positioned on top of the header */
+#quick-contact ul {
+	position: absolute; bottom: 100%;
+	// left: 50%; // margin-right: -50%; // transform: translateX( -50% );
+//	background-color: rgba( 255, 255, 0, 0.4 );
+}
+
+#quick-contact header {
+	margin-right: 4px;
+}
+
+#quick-contact main {
+	margin-right: 8px;
+}
+
+/* Aligning quick contact icons and content horizontally */
+#quick-contact li, #quick-contact header, #quick-contact main {
+	float: left;
+}
+
+#quick-contact header {
+	width: 1.8em;
+	position: relative;
+}
+
+/* Quick contact icon boxes */
+#quick-contact header:after {
+	display: inline-block;
+	width: 1em; height: 1em; line-height: 1em;
+	padding: 0.4em;
+	position: absolute; left: 0; top: 50%; transform: translateY( -50% );
+	border: 1px solid; border-radius: 50%;
+}
+
+a.button.scroll-to-top {
+	position: fixed; right: 10px; top: 50%; margin-top: -20px;
+	transform: translateX( calc( 40px + 2px + 10px ) );
+	opacity: 0;
+	transition-property: transform, opacity;
+	transition-duration: 0.2s;
+}
+
+.button.scroll-to-top.reveal {
+	transform: translateX( 0 );
+	opacity: 1;
+}
+
+/** 
+ * Elements centered horizontally
+ */
+#main-nav .button.open {
+	margin-left: auto; margin-right: auto;
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	TYPOGRAPHY
+/*-----------------------------------------------------------------*/
+
+#main-nav .button.open:before {
+	content: "\f0c9";
+}
+
+.button.scroll-to-top:before {
+	content: "\f062";
+}
+
+#main-nav .nav a:after {
+	content: "";
+}
+
+#quick-contact header {
+	text-indent: -10000px;
+}
+
+#quick-contact header:after {
+	font-family: "Font Awesome"; font-size: 0.9rem;
+	text-indent: 0; text-align: center;
+}
+
+#quick-contact .phone header:after {
+	content: "\f095";
+}
+
+#quick-contact .email header:after {
+	content: "\f0e0";
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	COLOR
+/*-----------------------------------------------------------------*/
+
+body > header {
+	background-color: rgba( 255, 255, 0, 0.1 );
+	border-color: rgba( 255, 255, 255, 0.25 );
+	color: rgba( 255, 255, 255, 1 );
+}
+
+.button.scroll-to-top {
+	color: rgba( 255, 255, 255, 0.2 );
+}
+
+#main-nav .nav {
+//	background-color: rgba( 80, 80, 0, 0.75 );
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	IMAGERY
+/*-----------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------*/
+/*	USER INTERACTIONS
+/*-----------------------------------------------------------------*/
+
+#main-nav .nav a:after {
+	display: block;
+//	width: 100%;
+	position: absolute; z-index: -1;
+}
+
+#main-nav.open .button.open {
+	
+}
+
+
+/*-----------------------------------------------------------------*/
+/*	EFFECTS
+/*-----------------------------------------------------------------*/
+
+
+/*-----------------------------------------------------------------*/
+/*	MEDIA QUERIES
+/*-----------------------------------------------------------------*/
+
+/** 
+ * Width breakpoints: 820px | 620px
+ */
+
+@media screen and ( max-width: 780px ) {
+	
+	#quick-contact ul {
+		bottom: calc( 100% + 10px );
+	}
+	
+}
+
+/** 
+ * Screen width over 640px
+ */
+@media screen and ( min-width: 641px ) {
+	
+	#main-nav .nav a:after {
+		width: 100%; height: 100%;
+		padding: 12px 5px;
+		left: 50%; top: 50%;
+		border: 1px solid rgba( 255, 255, 255, 0.5 );
+		box-shadow: 0 0 20px rgba( 0, 0, 0, 0.15 );
+	}
+
+	#main-nav .nav a:after {
+		transition-property: transform;
+		transition-duration: 0.2s;
+	}
+
+	#main-nav .nav a:after, #main-nav .nav:hover a.current:after {
+		opacity: 0;
+		transform: translate( -50%, -50% ) scale( 0.4 );
+	}
+
+	#main-nav .nav a.current:after, #main-nav .nav a:hover:after, #main-nav .nav a.current:hover:after {
+		opacity: 1;
+		transform: translate( -50%, -50% ) scale( 1 );
+	}
+
+	#main-nav .nav a:after {
+		background-color: rgba( 255, 255, 0, 0.05 );
+		border-color: rgba( 255, 255, 255, 0.5 );
+	}
+	
+}
+
+/** 
+ * Screen width below 640px
+ */
+@media screen and ( max-width: 640px ) {
+	
+	#main-nav {
+		width: 100%; height: 0;
+		margin-top: 0;
+		position: absolute; left: 0; top: -70px;
+		background-color: rgba( 255, 255, 255, 0.85 );
+		transition: height 0.4s;
+	}
+
+	/* Making the nav vertical */
+	#main-nav .nav, #main-nav li {
+		float: none;
+		margin-right: 0;
+	}
+
+	#main-nav .nav {
+		width: 100%; height: 0;
+		position: absolute; left: 50%; top: 50%; transform: translate( -50%, -50% );
+	//	background-color: rgba( 80, 80, 0, 0.75 );
+		overflow: hidden;
+	}
+
+	#main-nav .nav li {
+		text-align: center;
+		transform: translateY( 50px );
+		opacity: 0;
+		transition: none;
+	}
+
+	#main-nav .nav a {
+		height: 2.5em;
+		font-size: 120%;
+		color: rgba( 80, 80, 0, 0.75 );
+	}
+
+	#main-nav .nav a:after {
+		bottom: 0; left: 20px; right: 20px;
+		border-bottom: 1px solid;
+	}
+
+	#main-nav li:last-child a:after {
+		width: 0;
+	}
+
+	#main-nav.open {
+		height: 100vh;
+	}
+
+	#main-nav.open .nav {
+		height: auto;
+	}
+
+	#main-nav.open .nav li {
+		transform: translateY( 0 );
+		opacity: 1;
+		transition-property: transform, opacity; transition-duration: 0.25s;
+	}
+
+	#main-nav.open .button.open {
+		top: 70px;
+		color: rgba( 80, 80, 0, 0.75 );
+		border-color: inherit;
+		transition: top 0.2s;
+	}
+
+	#main-nav.open .button.open:hover {
+		color: rgba( 255, 255, 255, 0.75 );
+		border-color: rgba( 80, 80, 0, 0.75 );
+	}
+
+	#main-nav.open .button.open:before {
+		content: "\f00d";
+	}
+
+	#main-nav.open .button.open:after {
+		background-color: rgba( 80, 80, 0, 0.75 );
+	}
+
+	#main-nav .nav li:nth-child( 1 ) {
+		transition-delay: 0.4s;
+	}
+
+	#main-nav .nav li:nth-child( 2 ) {
+		transition-delay: 0.6s;
+	}
+
+	#main-nav .nav li:nth-child( 3 ) {
+		transition-delay: 0.8s;
+	}
+
+	#main-nav .nav li:nth-child( 4 ) {
+		transition-delay: 1.0s;
+	}
+
+	#main-nav .button.open {
+		display: block;
+	}
+
+	/* Quick contact is positioned on top of the header */
+	#quick-contact ul {
+		right: 20px; top: 0;
+	}
+
+	#quick-contact li header:after {
+		border: 0;
+		box-shadow: unset;
+	}
+
+	#quick-contact .phone header:after {
+		font-size: 100%;
+	}
+	
+}
+
+@media screen and ( max-width: 620px ) {
+	
+	/* Quick contact is positioned at the center */
+	#quick-contact {
+		display: none;
+	}
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
